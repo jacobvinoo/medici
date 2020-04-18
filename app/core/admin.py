@@ -28,3 +28,5 @@ class UserAdmin(BaseUserAdmin):
 
 
 admin.site.register(models.User, UserAdmin)
+admin.site.register(models.Student)
+"""Dont need to specify admin, uses default admin"""
