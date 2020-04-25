@@ -7,7 +7,9 @@ from core.models import Student
 from course import serializers
 
 
-class StudentViewSet(viewsets.GenericViewSet, mixins.ListModelMixin):
+class StudentViewSet(viewsets.GenericViewSet,
+                     mixins.ListModelMixin,
+                     mixins.CreateModelMixin):
     """Manage students in the database"""
     authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
@@ -17,3 +19,7 @@ class StudentViewSet(viewsets.GenericViewSet, mixins.ListModelMixin):
     def get_queryset(self):
         """Return objects for the current authenticated users only"""
         return self.queryset.filter(user=self.request.user).order_by('-name')
+
+    def perform_create(self, serializer):
+        """Create a new student"""
+        serializer.save(user=self.request.user)

@@ -57,7 +57,23 @@ class ModelTests(TestCase):
         """Test that the student string is represented correctly"""
         student = models.Student.objects.create(
             user=sample_user(),
-            name="Aisha Moraes Jacob"
+            name="Aisha Moraes Jacob",
         )
 
         self.assertEqual(str(student), student.name)
+
+    def test_level_str(self):
+        """Test that level string is represented correctly"""
+        level = models.Level.objects.create(
+            name="Level 1"
+        )
+
+        self.assertEqual(str(level), level.name)
+
+    def test_lesson_str(self):
+        """Test that lesson string is represented correctly"""
+        lesson = models.Lesson.objects.create(
+            name="lesson1"
+        )
+
+        self.assertEqual(str(lesson), lesson.name)

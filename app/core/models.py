@@ -54,3 +54,19 @@ class Student(models.Model):
         return self.name
 
     """add Student model to admin in admin.py"""
+
+
+class Level(models.Model):
+    """Level for each student"""
+    name = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.name
+
+
+class Lesson(models.Model):
+    """Lessons for each Level"""
+    name = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.name
