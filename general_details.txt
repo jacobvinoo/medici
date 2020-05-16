@@ -1,0 +1,7 @@
+
+#super user jacobvinoo@gmail.com
+# password 19..b..th
+
+
+# docker-compose run --rm app sh -c "python manage.py test && flake8"
+# docker-compose run --rm app sh -c "python manage.py startapp Company"
